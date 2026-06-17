@@ -1,3 +1,4 @@
+<script src="Gmain.js" defer></script>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -18,8 +19,8 @@
         </div>
         <nav class="header-nav">
             <a href="about.html" class="nav-btn">О проекте</a>
-            <a href="team.html" class="nav-btn">Команда</a>
-            <a href="contact.html" class="nav-btn">Контакты</a>
+            <a href="team.html" class="nav-btn">Благотворительность</a>
+            <a href="contact.html" class="nav-btn">О команде</a>
         </nav>
     </header>
 
@@ -32,21 +33,183 @@
                 Официальный сайт космической программы Гондураса. 
                 Здесь вы найдёте всю информацию о миссии, её целях и участниках.
             </p>
-            <a href="about.html" class="hero-btn">Узнать больше</a>
+            <a href="#space-race" class="hero-btn">Узнать больше</a>
         </div>
         <span class="hero-tagline">¡En marcha!</span>
     </section>
 
-    <!-- ===== WHITE PLACEHOLDER ===== -->
-    <section class="placeholder-section">
-        <!-- Заглушка — контент будет добавлен позже -->
+
+    <section class="space-race-section" id="space-race">
+    <h2 class="section-title">Космическая гонка</h2>
+    
+    <div class="carousel-container">
+        <button class="carousel-btn carousel-btn-left" id="carouselLeft">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        
+        <div class="carousel-track-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+                                <!-- Карточка 6 -->
+                <div class="carousel-card" data-index="5">
+                    <div class="card-image">
+                        <img src="images/space6.png" alt="Глубокий космос">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Космический проект Гондураса</h3>
+                        <p class="card-description">
+                            Подготовка к проекту по запуску первой ракеты со спутником в космос.
+                        </p>
+                        <button class="card-btn">Узнать больше →</button>
+                    </div>
+                </div>
+                <!-- Карточка 1 -->
+                <div class="carousel-card" data-index="0">
+                    <div class="card-image">
+                        <img src="images/space1.png" alt="Первый космический проект">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Начало космической эры</h3>
+                        <p class="card-description">
+                            После Второй мировой войны СССР и США начали активно разрабатывать ракетные технологии, открыв путь к освоению космоса.
+                        </p>
+                        <button class="card-btn">Узнать больше →</button>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="carousel-card" data-index="1">
+                    <div class="card-image">
+                        <img src="images/space2.png" alt="Лайка в космосе">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Первое животное в космосе</h3>
+                        <p class="card-description">
+                            В 1957 году собака Лайка стала первым живым существом на орбите Земли, доказав возможность жизни в космосе.
+                        </p>
+                        <button class="card-btn">Узнать больше →</button>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="carousel-card" data-index="2">
+                    <div class="card-image">
+                        <img src="images/space3.png" alt="Юрий Гагарин">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Юрий Гагарин — первый человек в космосе</h3>
+                        <p class="card-description">
+                            12 апреля 1961 года Юрий Гагарин совершил первый в истории полёт человека в космос на корабле «Восток-1».
+                        </p>
+                        <button class="card-btn">Узнать больше →</button>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="carousel-card" data-index="3">
+                    <div class="card-image">
+                        <img src="images/space4.jpg" alt="Высадка на Луну">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Первый шаг человека на Луне</h3>
+                        <p class="card-description">
+                            В июле 1969 года Нил Армстронг первым ступил на поверхность Луны в рамках программы «Аполлон-11».
+                        </p>
+                        <button class="card-btn">Узнать больше →</button>
+                    </div>
+                </div>
+
+                <!-- Карточка 5 -->
+                <div class="carousel-card" data-index="4">
+                    <div class="card-image">
+                        <img src="images/space5.jpeg" alt="Космическая программа Зимбабве">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Космическая программа Замбии</h3>
+                        <p class="card-description">
+                            Замбия развивала собственную космическую программу, осуществляя тренировки будущих космонавтов .
+                        </p>
+                        <button class="card-btn">Узнать больше →</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <button class="carousel-btn carousel-btn-right" id="carouselRight">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+    </div>
     </section>
 
+<!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content" id="modalContent">
+        <button class="modal-close" id="modalClose">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-text">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- ===== VIDEO SECTION ===== -->
+     <!-- <img src="images/main2.png" alt="Глубокий космос"> -->
+<section class="video-section">
+    
+    <div class="video-overlay"> </div>
+    <div class="video-container">
+        <div class="video-content">
+        <span class="video-label">FEATURED VIDEO</span>
+        <h2 class="video-title">Технологии будущего: спутники нового поколения</h2>
+        <p class="video-description">
+            Honduras Orbital Program разрабатывает инновационные спутниковые системы для мониторинга 
+            Земли. Современные технологии позволяют отслеживать изменения климата, прогнозировать 
+            стихийные бедствия и защищать население Гондураса.
+        </p>
+            <a href="about.html" class="video-btn">Узнать больше →</a>
+        </div>
+        
+        <div class="video-embed" id="videoContainer">
+            <div class="video-poster" id="videoPoster">
+                <img src="images/video-cover.jpg" alt="Video cover" class="poster-image">
+                <div class="poster-overlay"></div>
+                
+                <div class="poster-content">
+                    <!-- <img src="images/HopCirc.png" alt="HOP Logo" class="poster-logo"> -->
+                    <button class="play-button" id="playButton">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="40" r="38" fill="#d32f2f" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                            <path d="M32 28L56 40L32 52V28Z" fill="white"/>
+                        </svg>
+                    </button>
+                    <span class="poster-text">Смотреть видео</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="footer-block footer-brand">
-            <img src="images/HopCirc.png" alt="HOP Logo" class="footer-logo">
-            <span class="footer-brand-name">Honduras Orbital Program</span>
+            <div class="footer-brand-top">
+                <img src="images/HopCirc.png" alt="HOP Logo" class="footer-logo">
+                <span class="footer-brand-name">Honduras Orbital Program</span>
+            </div>
             <div class="footer-brand-info">
                 <span>Команда 5</span>
                 <span>2026</span>
@@ -64,14 +227,18 @@
 
         <div class="footer-block footer-authors">
             <h3>Авторы</h3>
-            <ul class="authors-list">
-                <li>Паша Толченов</li>
-                <li>Тимур Дедков</li>
-                <li>Артем Рябцев</li>
-                <li>Тигран Саркисян</li>
-                <li>Диана Савченко</li>
-                <li>Виталик Соколов</li>
-            </ul>
+            <div class="authors-columns">
+                <ul class="authors-col">
+                    <li>Паша Толченов</li>
+                    <li>Тимур Дедков</li>
+                    <li>Артем Рябцев</li>
+                </ul>
+                <ul class="authors-col">
+                    <li>Тигран Саркисян</li>
+                    <li>Диана Савченко</li>
+                    <li>Виталик Соколов</li>
+                </ul>
+            </div>
         </div>
     </footer>
 
