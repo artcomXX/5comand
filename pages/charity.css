@@ -12,8 +12,8 @@ a.header-left:hover {
     opacity: 0.8;
 }
 
-/* ===== ABOUT HERO ===== */
-.about-hero {
+/* ===== HERO CHARITY ===== */
+.charity-hero {
     position: relative;
     width: 100%;
     min-height: 420px;
@@ -24,7 +24,7 @@ a.header-left:hover {
     overflow: hidden;
 }
 
-.about-hero-overlay {
+.charity-hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -35,13 +35,13 @@ a.header-left:hover {
     );
 }
 
-.about-hero-content {
+.charity-hero-content {
     position: relative;
     z-index: 2;
     max-width: 700px;
 }
 
-.about-label {
+.charity-label {
     display: inline-block;
     font-size: 12px;
     font-weight: 600;
@@ -51,7 +51,7 @@ a.header-left:hover {
     text-transform: uppercase;
 }
 
-.about-title {
+.charity-title {
     font-size: 64px;
     font-weight: 800;
     line-height: 1.1;
@@ -60,7 +60,7 @@ a.header-left:hover {
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
 }
 
-.about-subtitle {
+.charity-subtitle {
     font-size: 18px;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.85);
@@ -68,16 +68,16 @@ a.header-left:hover {
 }
 
 /* ===== ОБЩИЕ СЕКЦИИ ===== */
-.about-section {
+.charity-section {
     padding: 100px 80px;
     background-color: #0a0a0a;
 }
 
-.about-section:nth-child(even) {
+.charity-section:nth-child(even) {
     background-color: #0f0f14;
 }
 
-.about-container {
+.charity-container {
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -102,31 +102,31 @@ a.header-left:hover {
 }
 
 /* ===== МИССИЯ ===== */
-.mission-grid {
+.mission-row {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     gap: 60px;
     align-items: center;
 }
 
-.mission-text p {
+.mission-text-block p {
     font-size: 16px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 20px;
 }
 
-.mission-text p:last-child {
+.mission-text-block p:last-child {
     margin-bottom: 0;
 }
 
-.mission-image {
+.mission-image-block {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-.mission-image img {
+.mission-image-block img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -134,217 +134,187 @@ a.header-left:hover {
     transition: transform 0.5s ease;
 }
 
-.mission-image:hover img {
+.mission-image-block:hover img {
     transform: scale(1.05);
 }
 
-/* ===== ЦЕЛИ ===== */
-.goals-grid {
+/* ===== НАПРАВЛЕНИЯ ===== */
+.directions-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
-.goal-card {
+.direction-card {
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 40px;
     transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.goal-card:hover {
+.direction-card:hover {
     background-color: rgba(255, 255, 255, 0.06);
     border-color: #d32f2f;
     transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(211, 47, 47, 0.15);
 }
 
-.goal-number {
+.direction-icon {
     font-size: 48px;
-    font-weight: 800;
-    color: #d32f2f;
-    margin-bottom: 16px;
-    line-height: 1;
-    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
-.goal-card h3 {
-    font-size: 22px;
+.direction-card h3 {
+    font-size: 24px;
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 14px;
 }
 
-.goal-card p {
+.direction-card p {
     font-size: 15px;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+    flex-grow: 1;
 }
 
-/* ===== СПУТНИК ===== */
-.satellite-grid {
+.direction-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.direction-stat .stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #d32f2f;
+    letter-spacing: 1px;
+}
+
+.direction-stat .stat-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== ПРОЕКТ ТЕГУСИГАЛЬПА ===== */
+.project-row {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
     gap: 60px;
     align-items: center;
 }
 
-.satellite-image {
+.project-image-block {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-.satellite-image img {
+.project-image-block img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s ease;
 }
 
-.satellite-text h3 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 20px;
+.project-image-block:hover img {
+    transform: scale(1.05);
 }
 
-.satellite-text p {
+.project-text-block p {
     font-size: 16px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.satellite-specs {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.project-text-block p:last-child {
+    margin-bottom: 0;
 }
 
-.spec-item {
+.project-text-block p strong {
+    color: #d32f2f;
+    font-weight: 700;
+}
+
+/* ===== ПОЖЕРТВОВАНИЕ ===== */
+.charity-donate {
+    background: linear-gradient(135deg, #1a0a0a 0%, #0a0a0a 100%);
+    text-align: center;
+}
+
+.donate-container {
+    max-width: 800px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    align-items: center;
 }
 
-.spec-value {
-    font-size: 24px;
-    font-weight: 800;
-    color: #d32f2f;
-    letter-spacing: 1px;
-}
-
-.spec-label {
-    font-size: 12px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* ===== БЛАГОТВОРИТЕЛЬНОСТЬ ===== */
-.charity-intro {
+.donate-text {
     font-size: 17px;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 50px;
-    max-width: 900px;
-}
-
-.charity-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.charity-card {
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 40px 30px;
-    text-align: center;
-    transition: all 0.4s ease;
-}
-
-.charity-card:hover {
-    background-color: rgba(255, 255, 255, 0.06);
-    border-color: #d32f2f;
-    transform: translateY(-6px);
-}
-
-.charity-icon {
-    font-size: 48px;
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 20px;
+    max-width: 700px;
 }
 
-.charity-card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 14px;
-}
-
-.charity-card p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.charity-cta {
-    text-align: center;
-}
-
-.cta-btn {
+.donate-btn {
     display: inline-block;
-    padding: 16px 40px;
+    margin-top: 30px;
+    padding: 20px 50px;
     background-color: #d32f2f;
     color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 8px;
     transition: all 0.3s ease;
-}
-
-.cta-btn:hover {
-    background-color: #b71c1c;
-    transform: translateY(-2px);
+    letter-spacing: 0.5px;
     box-shadow: 0 10px 30px rgba(211, 47, 47, 0.3);
 }
 
-/* ===== FOOTER LINK ===== */
-.footer-brand-top {
-    cursor: pointer;
+.donate-btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(211, 47, 47, 0.5);
+}
+
+.donate-note {
+    display: block;
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 1200px) {
-    .mission-grid,
-    .satellite-grid {
+    .mission-row,
+    .project-row {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
-    .charity-grid {
+    .directions-grid {
         grid-template-columns: 1fr;
-    }
-
-    .satellite-specs {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 900px) {
-    .about-hero,
-    .about-section {
+    .charity-hero,
+    .charity-section {
         padding: 60px 30px;
     }
 
-    .about-title {
+    .charity-title {
         font-size: 42px;
     }
 
@@ -352,52 +322,36 @@ a.header-left:hover {
         font-size: 32px;
     }
 
-    .goals-grid {
-        grid-template-columns: 1fr;
+    .donate-btn {
+        padding: 16px 32px;
+        font-size: 16px;
     }
 }
-.satellite-text p strong {
+/* ===== АКЦЕНТЫ ДЛЯ КОСМИЧЕСКОЙ ТЕМАТИКИ ===== */
+.charity-donate p strong {
     color: #d32f2f;
     font-weight: 700;
 }
-.about-section--light {
+
+.project-text-block p strong {
+    color: #d32f2f;
+    font-weight: 700;
+}
+/* ===== СВЕТЛАЯ СЕКЦИЯ (МИССИЯ) ===== */
+.charity-section--light {
     background-color: #ffffff;
 }
 
-.about-section--light .section-heading {
+.charity-section--light .section-heading {
     color: #000000;
 }
 
-.about-section--light .mission-text p,
-.about-section--light .satellite-text p {
+.charity-section--light .mission-text-block p {
     color: #333333;
 }
 
-.about-section--light .satellite-text h3 {
-    color: #000000;
-}
-
-.about-section--light .satellite-specs {
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.about-section--light .spec-label {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.about-section--light .mission-image,
-.about-section--light .satellite-image {
+.charity-section--light .mission-image-block {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-}
-
-.about-section--light .satellite-text p strong {
-    color: #d32f2f;
-    font-weight: 700;
-}
-
-.email-link {
-    color: #0066cc;
-
 }
 @media(max-width: 425px) {
     .header-nav {

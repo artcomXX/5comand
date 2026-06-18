@@ -770,3 +770,115 @@ ul {
         font-size: 32px;
     }
 }
+@media(max-width:768px){
+    .footer{
+        align-items: center;
+    }
+}
+@media(max-width: 425px) {
+    .header-nav {
+    display: grid;
+    gap: 20px;
+}
+}
+@media (max-width: 425px) {
+    .space-race-section {
+        padding: 40px 15px;
+    }
+
+    .section-title {
+        font-size: 26px;
+        margin-left: 0;
+        margin-bottom: 30px;
+        letter-spacing: 0.5px;
+    }
+
+    .carousel-container {
+        gap: 8px;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .carousel-track {
+        gap: 12px;
+    }
+
+    .carousel-card {
+        min-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .card-image {
+        height: 180px;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .card-title {
+        font-size: 17px;
+        margin-bottom: 8px;
+    }
+
+    .card-description {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+    }
+
+    .card-btn {
+        font-size: 13px;
+    }
+
+    .header {
+        padding: 12px 15px;
+    }
+
+    .header-title {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+
+    .header-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .nav-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 40px 15px;
+        min-height: 360px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .hero-tagline {
+        left: 15px;
+        bottom: 16px;
+        font-size: 16px;
+    }
+
+    .footer {
+        padding: 30px 15px;
+        gap: 30px;
+    }
+}
