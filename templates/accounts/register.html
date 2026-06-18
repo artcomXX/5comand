@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход — HOP</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/HopCirc.png' %}">
+    
+    <style>
+        .auth-container { max-width: 400px; margin: 100px auto; padding: 40px; background: #111; border-radius: 12px; }
+        .form-control { width: 100%; padding: 12px; margin-bottom: 15px; background: #222; border: 1px solid #333; color: #fff; border-radius: 6px; }
+        .auth-btn { width: 100%; padding: 14px; background: #d32f2f; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
+        .auth-link { color: #aaa; margin-top: 20px; text-align: center; display: block; }
+        .auth-link a { color: #d32f2f; }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <h2 style="color:#fff; margin-bottom: 20px;">Вход в HOP</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="auth-btn">Войти</button>
+        </form>
+        <p class="auth-link">Нет аккаунта? <a href="{% url 'accounts:register' %}">Зарегистрироваться</a></p>
+    </div>
+</body>
+</html>

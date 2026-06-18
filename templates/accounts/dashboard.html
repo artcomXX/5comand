@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — HOP</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/HopCirc.png' %}">
+</head>
+<body>
+
+    <header class="header">
+        <a href="{% url 'index' %}" class="header-left">
+            <img src="{% static 'images/HOP.png' %}" alt="HOP Logo" class="header-logo">
+            <h1 class="header-title">H.O.P</h1>
+        </a>
+        <nav class="header-nav">
+            <a href="{% url 'about' %}" class="nav-btn">О проекте</a>
+            <a href="{% url 'charity' %}" class="nav-btn">Благотворительность</a>
+            <a href="{% url 'team' %}" class="nav-btn">О команде</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'accounts:dashboard' %}" class="nav-btn">Кабинет</a>
+                <a href="{% url 'accounts:logout' %}" class="nav-btn">Выйти</a>
+            {% else %}
+                <a href="{% url 'accounts:login' %}" class="nav-btn">Войти</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <section class="dashboard-hero">
+        <div class="dashboard-hero-overlay"></div>
+        <div class="dashboard-hero-content">
+            <span class="dashboard-label">ЛИЧНЫЙ КАБИНЕТ</span>
+            <h1 class="dashboard-title">Добро пожаловать, {{ user.username }}!</h1>
+            <p class="dashboard-subtitle">
+                Управляйте своим профилем, подписывайтесь на новости и поддерживайте проект
+            </p>
+        </div>
+    </section>
+
+    <section class="dashboard-section">
+        <div class="dashboard-container">
+            
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <div class="dashboard-grid">
+                
+                <div class="dashboard-sidebar">
+                    <div class="profile-card">
+                        <form method="post" enctype="multipart/form-data" class="avatar-form">
+                            {% csrf_token %}
+                            <div class="avatar-container">
+                                {% if user.avatar %}
+                                    <img src="{{ user.avatar.url }}" alt="Аватар" class="profile-avatar" id="avatarPreview">
+                                {% else %}
+                                    <div class="profile-avatar-placeholder" id="avatarPlaceholder">
+                                        {{ user.username|first|upper }}
+                                    </div>
+                                {% endif %}
+                                <label for="avatarInput" class="avatar-upload-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    <span>Загрузить фото</span>
+                                </label>
+                                <input type="file" id="avatarInput" name="avatar" accept="image/*" style="display: none;" onchange="previewAvatar(event)">
+                            </div>
+                            <button type="submit" class="save-avatar-btn">Сохранить аватар</button>
+                        </form>
+
+                        <div class="profile-info">
+                            <h3>{{ user.get_full_name|default:user.username }}</h3>
+                            <p class="profile-email">{{ user.email }}</p>
+                            <p class="profile-joined">Участник с {{ user.date_joined|date:"d.m.Y" }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-main">
+                    
+                    <div class="info-card">
+                        <h2 class="card-title">Личная информация</h2>
+                        <form method="post" class="profile-form">
+                            {% csrf_token %}
+                            <input type="hidden" name="update_profile" value="1">
+                            
+                            <div class="form-group">
+                                <label for="username">Имя пользователя</label>
+                                <input type="text" id="username" name="username" value="{{ user.username }}" class="form-control" readonly>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first_name">Имя</label>
+                                    <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}" class="form-control" placeholder="Введите имя">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name">Фамилия</label>
+                                    <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}" class="form-control" placeholder="Введите фамилию">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" value="{{ user.email }}" class="form-control" placeholder="Введите email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Телефон</label>
+                                <input type="tel" id="phone" name="phone" value="{{ user.phone }}" class="form-control" placeholder="+7 (___) ___-__-__">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bio">О себе</label>
+                                <textarea id="bio" name="bio" class="form-control" rows="4" placeholder="Расскажите о себе...">{{ user.bio }}</textarea>
+                            </div>
+
+                            <button type="submit" class="save-btn">Сохранить изменения</button>
+                        </form>
+                    </div>
+
+                    <div class="info-card newsletter-card">
+                        <h2 class="card-title">Подписка на новости</h2>
+                        <p class="card-description">
+                            Получайте актуальные новости о проекте HOP, обновлениях и событиях прямо на почту
+                        </p>
+                        
+                        {% if is_subscribed %}
+                            <div class="subscribed-status">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <span>Вы подписаны на рассылку</span>
+                            </div>
+                        {% else %}
+                            <form method="post" action="{% url 'newsletter:subscribe' %}" class="newsletter-form">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="email" name="email" value="{{ user.email }}" class="form-control" placeholder="Ваш email для рассылки" required>
+                                </div>
+                                <button type="submit" class="subscribe-btn">Подписаться</button>
+                            </form>
+                        {% endif %}
+                    </div>
+
+                    <div class="info-card donate-card">
+                        <h2 class="card-title">Поддержать проект</h2>
+                        <p class="card-description">
+                            Вы также можете поддержать разработчиков сайта! Ваши деньги пойдут на дальнейшую разработку проектов!
+                        </p>
+
+                        <a href="https://www.helphonduras.ca/our-projects/tegucigalpa/donate-to-tegucigalpa" target="_blank" class="donate-btn">
+                            Поддержать проект
+                        </a>
+                        <p class="donate-note">Вы перейдёте на официальную страницу пожертвований</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-block footer-brand">
+            <a href="{% url 'index' %}" class="footer-brand-top">
+                <img src="{% static 'images/HOP.png' %}" alt="HOP" class="footer-logo">
+                <span class="footer-brand-name">Honduras Orbital Program</span>
+            </a>
+            <div class="footer-brand-info">
+                <span>Сделано командой номер 5 в 2026 году</span>
+            </div>
+            <div class="footer-brand-info">
+                Наш github репозиторий - https://github.com/artcomXX/5comand
+            </div>
+        </div>
+
+        <div class="footer-block footer-info">
+            <h3>Информация о проекте</h3>
+            <p>
+                Honduras Orbital Program — национальная космическая инициатива, 
+                направленная на развитие орбитальных технологий и научных исследований 
+                в интересах Гондураса и всего мира.
+            </p>
+        </div>
+
+        <div class="footer-block footer-authors">
+            <h3>Авторы</h3>
+            <div class="authors-columns">
+                <ul class="authors-col">
+                    <li>Паша Толченов</li>
+                    <li>Тимур Дедков</li>
+                    <li>Артем Рябцев</li>
+                </ul>
+                <ul class="authors-col">
+                    <li>Тигран Саркисян</li>
+                    <li>Диана Савченко</li>
+                    <li>Виталий Соколов</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function previewAvatar(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('avatarPreview');
+                    const placeholder = document.getElementById('avatarPlaceholder');
+                    
+                    if (preview) {
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                    } else if (placeholder) {
+                        const img = document.createElement('img');
+                        img.id = 'avatarPreview';
+                        img.src = e.target.result;
+                        img.className = 'profile-avatar';
+                        placeholder.replaceWith(img);
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
